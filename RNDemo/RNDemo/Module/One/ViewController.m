@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <Masonry.h>
 #import <React/RCTRootView.h>
 @interface ViewController ()
 
@@ -19,17 +20,21 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
-    button.backgroundColor = [UIColor blueColor];
+    UIButton *button = [[UIButton alloc]init];
+    [button setTitle:@"React Native" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.view addSubview:button];
     [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    [button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.height.mas_equalTo(40);
+    }];
 }
 
 - (void)buttonClick {
     NSLog(@"High Score Button Pressed");
-//    NSURL *jsCodeLocation = [NSURL
-//                             URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios"];
-//    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://127.0.0.1:8081/index.ios.bundle?platform=ios&dev=true"];
+
     NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
     RCTRootView *rootView =
     [[RCTRootView alloc] initWithBundleURL : jsCodeLocation
@@ -50,7 +55,8 @@
                           launchOptions    : nil];
     UIViewController *vc = [[UIViewController alloc] init];
     vc.view = rootView;
-    [self presentViewController:vc animated:YES completion:nil];
+//    [self presentViewController:vc animated:YES completion:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
