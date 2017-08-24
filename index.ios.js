@@ -12,7 +12,9 @@ import {
     Button,
     ScrollView,
     TextInput,
-    Image
+    Image,
+    TouchableHighlight,
+    Animated
 } from 'react-native';
 
 // const App = StackNavigator({
@@ -77,6 +79,20 @@ class PizzaTranslator extends Component {
                     {this.state.text.split(' ').map((word) => word && '🍕').join(' ')}
                 </Text>
             </View>
+        );
+    }
+}
+
+class MyButton extends Component {
+    onPressButton() {
+        console.log("You tapped the button!");
+    }
+
+    render() {
+        return (
+            <TouchableHighlight onPress={this.onPressButton}>
+                <Text>Button</Text>
+            </TouchableHighlight>
         );
     }
 }
@@ -176,10 +192,26 @@ class RNHighScores extends React.Component {
                 </View>
 
                 <View style={styles.itemMargin}>
+                    <Text style={styles.textColor}>手势</Text>
+                    <MyButton />
+                </View>
+
+                <View style={styles.itemMargin}>
+                    <Text style={styles.textColor}>Animated</Text>
+                    
+                </View>
+
+                <View style={styles.itemMargin}>
                     <Text style={styles.textColor}>Image</Text>
                     <Image source={{ uri: 'https://facebook.github.io/react/img/logo_og.png' }}
-                        style={{ width: 400, height: 400 }} />
+                        style={{ width: 200, height: 200 }} />
                 </View>
+
+                
+
+                
+
+                
                 
             </ScrollView>
         );
