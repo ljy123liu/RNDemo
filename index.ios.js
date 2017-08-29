@@ -16,7 +16,7 @@ import {
     TouchableHighlight,
     Animated
 } from 'react-native';
-
+import YouKu from './components/youku'
 /**
  * 属性:props
  */
@@ -205,7 +205,9 @@ class RNHighScores extends React.Component {
                         style={{ width: 200, height: 200 }} />
                 </View>
 
-                
+                <View style={styles.itemMargin}>
+                    <YouKu name='我是组件'/>
+                </View>
 
                 
 

@@ -26,7 +26,7 @@ class YouKuComponent extends Component {
             <View>
                 {/* 多个样式，用数组 */}
                 <Text style={[styles.itemMargin, styles.textColor]}>我是自定义组件:{this.props.name}</Text>
-                <Button title='button' onPress={this.click}/>
+                {/* <Button title='button' onPress={this.click}/> */}
             </View>
         );
     }
