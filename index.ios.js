@@ -17,11 +17,6 @@ import {
     Animated
 } from 'react-native';
 
-// const App = StackNavigator({
-//     Main: { screen: MainScreen },
-//     Profile: { screen: ProfileScreen },
-// });
-
 /**
  * 属性:props
  */
@@ -202,7 +197,10 @@ class RNHighScores extends React.Component {
                 </View>
 
                 <View style={styles.itemMargin}>
-                    <Text style={styles.textColor}>Image</Text>
+                    <Text style={styles.textColor}>本地图片</Text>
+                    <Image source={require('./Img/cloth.jpg')}
+                        style={{ width: 200, height: 200 }} />
+                    <Text style={styles.textColor}>网络图片</Text>
                     <Image source={{ uri: 'https://facebook.github.io/react/img/logo_og.png' }}
                         style={{ width: 200, height: 200 }} />
                 </View>
