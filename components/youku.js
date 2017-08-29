@@ -14,19 +14,44 @@ import {
     ImageBackground,
     TouchableHighlight,
 } from 'react-native';
-
+import util from '../utils/api';
 
 class YouKuComponent extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {title:''};
+    }
+
     click() {
-        console.log(222)
+
+        fetch('https://facebook.github.io/react-native/movies.json', {
+            method: 'GET'
+        })
+        .then((response) => response.json())
+        .then((responseData) => {
+            const movie = responseData.movies[0];
+            util.get();
+            // console.log(movie.title);
+            // this.setState({
+            //     return: {title: movie.title}
+            // });
+        })
+        .catch((error) => {
+            callback(error);
+        });
     }
 
     render() {
+
         return (
             <View>
                 {/* 多个样式，用数组 */}
                 <Text style={[styles.itemMargin, styles.textColor]}>我是自定义组件:{this.props.name}</Text>
                 {/* <Button title='button' onPress={this.click}/> */}
+                <TouchableHighlight onPress={this.click} style={{height:50}}>
+                    <Text style={{ textAlign: 'center' }}>网络请求</Text>
+                </TouchableHighlight>
+                <Text>{this.state.title}</Text>
             </View>
         );
     }

@@ -112,6 +112,7 @@ class RNHighScores extends React.Component {
                         title="Go to Jane's profile"
                         onPress={() =>navigate('Profile', { name: 'Jane' })}/>
                 </View>
+                <Text>我们使用两种数据来控制一个组件：props和state。props是在父组件中指定，而且一经指定，在被指定的组件的生命周期中则不再改变。 对于需要改变的数据，我们需要使用state。</Text>
                 <View style={{marginTop:20,backgroundColor:'lightgray'}}>
                      <NameCard name='我是组件:props' age='25' />
                      <Blink style={styles.blinkStyle} text='state改变' />
